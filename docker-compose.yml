@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  git-mc-backuper:
+    build: .
+    environment:
+      - RCON_HOST=mc-server
+      - RCON_PORT=25575
+      - RCON_PASSWORD=some_secret
+      - GIT_NAME=bot_backuper
+      - GIT_EMAIL=bot_backuper@null.null
+    volumes:
+        - ./id_rsa:/root/.ssh/id_rsa
+        - ../my-running/data/world:/root/master/world
+        - ../my-running/data/world_nether:/root/slave/world_nether
