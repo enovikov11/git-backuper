@@ -1,11 +1,13 @@
 git config --global user.name $GIT_NAME
 git config --global user.email $GIT_EMAIL
 
+chown -R root:root /root
+
 cd /root
 # Отключаем автосохранение чанков на диск, чтобы не испортить бекап
-./rcon-cli --host ${RCON_HOST} --port ${RCON_PORT} --password ${RCON_PASSWORD} save-off
+/root/rcon-cli --host ${RCON_HOST} --port ${RCON_PORT} --password ${RCON_PASSWORD} save-off
 # Форсированно сохраняем на диск загруженные чанки, чтобы в бекап попали актуальные версии
-./rcon-cli --host ${RCON_HOST} --port ${RCON_PORT} --password ${RCON_PASSWORD} save-all flush
+/root/rcon-cli --host ${RCON_HOST} --port ${RCON_PORT} --password ${RCON_PASSWORD} save-all flush
 
 TAG=$(date +"save_%d_%m_%Y__%H")
 
@@ -17,7 +19,7 @@ for dirname in $(ls /root/master); do
 done
 
 # Включаем автосохранение чанков на диск, чтобы не терять данные при внезапном отключении
-./rcon-cli --host ${RCON_HOST} --port ${RCON_PORT} --password ${RCON_PASSWORD} save-on
+/root/rcon-cli --host ${RCON_HOST} --port ${RCON_PORT} --password ${RCON_PASSWORD} save-on
 
 for dirname in $(ls /root/master); do
     cd /root/master/$dirname
