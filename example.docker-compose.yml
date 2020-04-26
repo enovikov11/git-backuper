@@ -2,7 +2,7 @@ version: '3'
 
 services:
   git-mc-backuper:
-    build: .
+    image: smbdsbrain/git-mc-backuper
     environment:
       - RCON_HOST=mc-server
       - RCON_PORT=25575
@@ -11,6 +11,5 @@ services:
       - GIT_EMAIL=bot_backuper@null.null
     volumes:
         - ./id_rsa:/root/.ssh/id_rsa
-        - ./ssh_config:/root/.ssh/config
         - ../my-running/data/world:/root/master/world
         - ../my-running/data/world_nether:/root/slave/world_nether
