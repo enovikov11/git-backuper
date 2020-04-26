@@ -15,7 +15,7 @@ for dirname in $(ls /root/master); do
     cd /root/master/$dirname
     git add .
     git commit -m $TAG
-    git tag -a $TAG -m $TAG
+#    git tag -a $TAG -m $TAG
 done
 
 # Включаем автосохранение чанков на диск, чтобы не терять данные при внезапном отключении
