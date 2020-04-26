@@ -1,8 +1,13 @@
-- Склонировать этот репозиторий
-- Взять за пример docker-compose.yml и добавить к своему выбрав правильные значения
-- build должен указывать на эту папку
-- RCON_HOST, RCON_PORT, RCON_PASSWORD нужно заполнить своими значениями rcon, пароль непустой
-- GIT_NAME, GIT_EMAIL такие что origin их примет
-- ./id_rsa ключик от ssh
-- В /root/master кладем папки: например world, в которых есть git репозиторий с правильным remote origin. Информация тут будет закидываться через git, перезаписывая то, что в origin
-- В /root/slave так-же, но сюда будет форсированно закидываться то, что в origin
+Scripts to backup your minecraft world into git.
+
+
+Master world - world, which would overwrite changes in repository.
+Slave world - world, which would prefer changes from origin.
+
+
+1. Mount ssh key to `/root/.ssh/id_rsa`  
+2. Mount master world into `/root/master`
+3. Mount slave world into `/root/master`
+4. Setup GIT_NAME, GIT_EMAIL
+
+Credits to [docker-cron](https://github.com/Ekito/docker-cron)
