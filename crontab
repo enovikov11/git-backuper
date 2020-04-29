@@ -1,4 +1,4 @@
-* * * * * /home/joe/myscript >> /home/log/myscript.log 2>&1
+* * * * * /home/joe/myscript >> /root/log/myscript.log 2>&1
 # An empty line is required at the end of this file for a valid cron file.
 
-0 4 * * * sh /root/backup.sh
+0 7 * * * sh /backup.sh >> /root/log/backup.log 2>&1
