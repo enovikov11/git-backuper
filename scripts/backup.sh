@@ -23,8 +23,8 @@ done
 
 for dirname in $(ls /root/master); do
     cd /root/master/$dirname
-    # Пихаем в orgin новые комиты, стирая то, что там лежит
-    git push -f -u origin master
+    # Пихаем в orgin новые комиты
+    git push
 done
 
 for dirname in $(ls /root/slave); do
